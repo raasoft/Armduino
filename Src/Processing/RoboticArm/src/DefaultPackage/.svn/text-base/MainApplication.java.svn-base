@@ -1,0 +1,259 @@
+package DefaultPackage;
+
+import processing.core.*;
+import controlP5.*;
+
+public class MainApplication extends PApplet
+{
+	ControlP5 controlP5;
+	
+	Textlabel myTextlabelA;
+	
+	PFont font;
+	Arm arm;
+	Grid grid;
+	
+	RadioButton modeSelector;
+	
+	static public int colorSliderFore;
+	static public int colorSliderBack;
+	static public int colorSliderActive;
+	 
+	public static void main(String args[]) {
+		PApplet.main(new String[] { "--present", "DefaultPackage.MainApplication" });
+	}
+	
+	public ControlP5 getP5Controller()
+	{
+		return controlP5;
+	}
+	
+	public Arm getArm()
+	{
+		return arm;
+	}
+	
+	public Grid getGrid()
+	{
+		return grid;
+	}
+	
+	public void setup()
+	{
+		  size(1000, 600);
+
+		  font = loadFont("Verdana-10.vlw"); 
+		  textFont(font);
+		  
+		  smooth();
+		  
+		  arm = new Arm(this);
+		  grid = new Grid(this);
+		  
+		  controlP5 = new ControlP5(this);
+		  
+		  colorSliderBack = color(100,100,100);
+		  colorSliderFore = color(150,150,150);
+		  colorSliderActive  = color(200,200,200);
+		  
+		  int yOrigin = 10;
+		  int xOrigin = 10;
+		  
+		  int i = 0;
+		  
+		  int sliderHeight = 11;
+		  int sliderWidth = 100;
+		  int vSpacing = 6;
+		  
+		  myTextlabelA = controlP5.addTextlabel("SplashTitle","Arm Controller GUI v. 0.45", xOrigin, yOrigin); i++;
+		  myTextlabelA.setFont(ControlP5.standard56);
+		  myTextlabelA.setColorValueLabel(color(0,0,0));
+		  
+		
+		  
+		  Slider slider = null;
+		  
+		  Textlabel label = null;
+		  
+		  label = controlP5.addTextlabel("Joint0Label","Joint 0", xOrigin,  yOrigin + i * (sliderHeight + vSpacing)); i++;
+		  label.setFont(ControlP5.standard56);
+		  label.setColorValueLabel(color(0,0,0));  
+		  
+		  slider = controlP5.addSlider("sliderJoint1BaseX",-Grid.dimension.x/2,Grid.dimension.x/2,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("base x");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint1BaseY",0,Grid.dimension.y,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("base y");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint1TipX",-Grid.dimension.x/2,Grid.dimension.x/2,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("tip x");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint1TipY",0,Grid.dimension.y,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("tip y");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint1Theta",0,180,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("rel. direction");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint1ThetaAim",0,180,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("aim direction");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint1ThetaStepAim",0,48,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("aim direction step");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  label = controlP5.addTextlabel("Joint1Label","Joint 1", xOrigin,  yOrigin + i * (sliderHeight + vSpacing)); i++;
+		  label.setFont(ControlP5.standard56);
+		  label.setColorValueLabel(color(0,0,0));  
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  
+		  slider = controlP5.addSlider("sliderJoint2BaseX",-Grid.dimension.x/2,Grid.dimension.x/2,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("base x");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint2BaseY",0,Grid.dimension.y,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("base y");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  
+		  slider = controlP5.addSlider("sliderJoint2TipX",-Grid.dimension.x/2,Grid.dimension.x/2,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("tip x");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint2TipY",0,Grid.dimension.y,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("tip y");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint2Theta",0,360,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("rel. direction");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint2ThetaAim",0,360,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("aim direction");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderJoint2ThetaStepAim",0,96,0, xOrigin, yOrigin + i * (sliderHeight + vSpacing),sliderWidth,sliderHeight); i++;
+		  slider.setLabel("aim direction step");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  
+		  slider = controlP5.addSlider("sliderMouseX",-Grid.dimension.x/2,+Grid.dimension.x/2,0,(int)(Grid.origin.x + 5 - Grid.dimension.x/2),(int)(Grid.origin.y + 5  - Grid.dimension.y),sliderWidth,sliderHeight);
+		  slider.setLabel("Target X");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  slider = controlP5.addSlider("sliderMouseY",0,Grid.dimension.y,0,(int)(Grid.origin.x + 5 - Grid.dimension.x/2),(int)(Grid.origin.y + 20  - Grid.dimension.y),sliderWidth,sliderHeight);
+		  slider.setLabel("Target Y");
+		  slider.setColorCaptionLabel(color(0,0,0));
+		  slider.setColorForeground(colorSliderFore);
+		  slider.setColorBackground(colorSliderBack);
+		  slider.setColorActive(colorSliderFore);
+		  
+		  modeSelector = controlP5.addRadioButton("radioButtonMode",(int)(Grid.origin.x + Grid.dimension.x/6),(int)(Grid.origin.y + 5  - Grid.dimension.y));
+		  modeSelector.setColorForeground(colorSliderBack);
+		  modeSelector.setColorBackground(colorSliderBack);
+		  modeSelector.setColorActive(colorSliderFore);
+		  modeSelector.setColorLabel(color(255));
+		  modeSelector.setItemsPerRow(5);
+		  modeSelector.setSpacingColumn(50);
+
+		  addToRadioButton(modeSelector,"Setup",1);
+		  addToRadioButton(modeSelector,"Track",2);
+		  addToRadioButton(modeSelector,"Auto",3);
+		  
+		  modeSelector.deactivateAll();
+		  modeSelector.activate("Setup");
+		  modeSelector.setNoneSelectedAllowed(false);
+		  
+		  Controller button = controlP5.addButton("cleanPaperSheet",1, (int)(Grid.origin.x + Grid.dimension.x/4 + 10),(int)(Grid.origin.y + 20 - Grid.dimension.y),60,12);
+		  button.setLabel("Clean");
+		  button.setColorActive(colorSliderActive);
+		  button.setColorForeground(colorSliderFore);
+		  button.setColorBackground(colorSliderBack);
+	}
+	
+	RadioButton getModeSelector()
+	{
+		return modeSelector;
+	}
+
+	void addToRadioButton(RadioButton theRadioButton, String theName, int theValue ) 
+	{
+		Toggle t = theRadioButton.addItem(theName,theValue);
+		t.captionLabel().setColorBackground(color(80));
+		t.captionLabel().style().movePadding(2,0,-1,2);
+		t.captionLabel().style().moveMargin(-2,0,0,-3);
+		t.captionLabel().style().backgroundWidth = 46;
+	}
+
+	public void draw()
+	{
+
+		fill(250);
+		rect(0,0, width, height);
+
+		arm.update();
+				
+		grid.draw();
+		arm.draw();
+		
+	}
+	
+	public void cleanPaperSheet(int theValue) {
+
+			grid.cleanPaperSheet();
+
+		}
+
+}
+
+
+
+
+

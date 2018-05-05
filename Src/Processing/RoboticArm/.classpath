@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/libraries/serial/library/RXTXcomm.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/libraries/serial/library"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/libraries/serial/library/serial.jar"/>
+	<classpathentry kind="lib" path="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/lib/ant.jar"/>
+	<classpathentry kind="lib" path="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/lib/ant-launcher.jar"/>
+	<classpathentry kind="lib" path="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/lib/antlr.jar"/>
+	<classpathentry kind="lib" path="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/lib/core.jar"/>
+	<classpathentry kind="lib" path="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/lib/ecj.jar"/>
+	<classpathentry kind="lib" path="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/lib/jna.jar"/>
+	<classpathentry kind="lib" path="E:/RAA/Programmazione/IDEs/Processing/Win/processing-1.2.1/lib/pde.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
